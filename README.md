@@ -1,8 +1,6 @@
-# triorasystems
-Deploying triorasystems application in k8s.
+# Deploying triorasystems application in k8s(kubeadm).
 
 # kubeadm installation
-
     sudo apt-get update
     sudo apt-get install -y apt-transport-https ca-certificates curl gpg
     curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
@@ -58,6 +56,10 @@ Deploying triorasystems application in k8s.
 
     # k8s get nodes
     kubectl get nodes
-    
+
+# Kubernetes apply for createing pods and svc
+    kubectl apply -f triora-deployment.yaml
+
+    kubectl get all -n triora
 
 
