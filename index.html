@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Cloud Solutions - Transform Your Digital Future</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- AOS Animate On Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #3b82f6;
+      --accent: #06b6d4;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --bg: #f8fafc;
+      --dark: #1e293b;
+      --text: #334155;
+      --text-light: #64748b;
+      --white: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Custom Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .7; }
+    }
+
+    @keyframes slideInFromLeft {
+      0% { transform: translateX(-100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInFromRight {
+      0% { transform: translateX(100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes scaleIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes rotateIn {
+      0% { transform: rotate(-180deg) scale(0); opacity: 0; }
+      100% { transform: rotate(0deg) scale(1); opacity: 1; }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(79, 70, 229, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(79, 70, 229, 0.6); }
+    }
+
+    .floating { animation: float 3s ease-in-out infinite; }
+    .pulsing { animation: pulse 2s infinite; }
+    .glowing { animation: glow 2s ease-in-out infinite; }
+
+    /* Header Styles */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1600px; /* Increased for larger screens */
+      width: 100%;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+      padding: 0.5rem 0;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    /* Section Base */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1600px; /* Increased for larger screens */
+      width: 100%;
+      margin: auto;
+      position: relative;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/><circle cx="700" cy="800" r="80" fill="url(%23a)"/></svg>');
+      opacity: 0.3;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      animation: slideInFromLeft 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      animation: slideInFromRight 1s ease-out 0.3s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: scaleIn 1s ease-out 0.6s both;
+    }
+
+    .btn {
+      background: var(--white);
+      color: var(--primary);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    /* Statistics Section */
+    .stats {
+      background: var(--white);
+      padding: 4rem 2rem;
+      margin-top: -3rem;
+      position: relative;
+      z-index: 10;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      max-width: 1600px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 1rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+
+    /* Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      position: relative;
+      min-height: 300px;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px) rotate(2deg);
+      box-shadow: var(--shadow-lg);
+      border: 2px solid var(--primary);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      loading: lazy;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 2rem;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-primary);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    /* About Section */
+    .about {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border-radius: 30px;
+      padding: 4rem;
+      margin: 2rem auto;
+      max-width: 1600px;
+      width: 100%;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      loading: lazy;
+    }
+
+    .about-team, .about-milestones {
+      margin-top: 4rem;
+    }
+
+    .about-team h3, .about-milestones h3 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 2rem;
+    }
+
+    /* Services Enhanced */
+    .service-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      opacity: 0.05;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotateY(360deg);
+    }
+
+    /* Case Studies Section */
+    .case-studies {
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 4rem 2rem;
+      margin: 4rem auto;
+      max-width: 1600px;
+      width: 100%;
+    }
+
+    .case-studies .section-title {
+      color: var(--white);
+    }
+
+    .case-study-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .case-study-card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .case-study-result {
+      background: var(--success);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    /* Technology Stack */
+    .tech-stack {
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 1600px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .tech-item {
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .tech-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tech-item i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    /* Process Section */
+    .process {
+      background: var(--bg);
+      padding: 4rem 2rem;
+      max-width: 1600px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .process-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .process-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border: 2px solid var(--primary);
+    }
+
+    .process-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .process-card h3 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .process-card p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Features Section */
+    .features {
+      max-width: 1600px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .features .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .features .card-content {
+      flex-grow: 1;
+    }
+
+    /* Testimonials Enhanced */
+    .testimonials {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border-radius: 30px;
+      padding: 4rem 2rem;
+      margin: 4rem auto;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      max-width: 1600px;
+      width: 100%;
+    }
+
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/><circle cx="700" cy="800" r="80" fill="url(%23a)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .testimonial-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 2rem;
+      padding-bottom: 1rem;
+      scroll-behavior: smooth;
+    }
+
+    .testimonial-carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .testimonial-carousel::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      flex: 0 0 350px;
+      scroll-snap-align: start;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-size: 6rem;
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      opacity: 0.3;
+      font-family: serif;
+    }
+
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-tertiary);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
+
+    /* FAQ Enhanced */
+    .faq {
+      max-width: 1600px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-question {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 1.5rem;
+      background: var(--white);
+      transition: all 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      background: var(--bg);
+      color: var(--primary);
+    }
+
+    .faq-question i {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: var(--bg);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 1.5rem;
+    }
+
+    /* Contact Enhanced */
+    .contact {
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 4rem 2rem;
+      margin: 4rem auto;
+      max-width: 1600px;
+      width: 100%;
+    }
+
+    .contact .section-title {
+      color: var(--white);
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact input, .contact textarea {
+      padding: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact select {
+      padding: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="white" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 1rem center;
+      color: white;
+      backdrop-filter: blur(10px);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+    }
+
+    .contact select option {
+      background: var(--dark);
+      color: white;
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+
+    .contact input::placeholder, .contact textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .contact-info h3 {
+      color: var(--accent);
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--accent);
+      width: 30px;
+    }
+
+    /* Footer Enhanced */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 4rem 2rem 2rem;
+      position: relative;
+      max-width: 1600px;
+      width: 100%;
+      margin: auto;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1600px;
+      width: 100%;
+      margin: 0 auto 2rem;
+    }
+
+    .footer-section h4 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+
+    .footer-section p, .footer-section a {
+      color: #d1d5db;
+      margin-bottom: 0.8rem;
+      display: block;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1.1rem; }
+      .section-title { font-size: 2rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .about-content { grid-template-columns: 1fr; }
+      .contact-content { grid-template-columns: 1fr; }
+      
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header" role="banner">
+    <nav>
+      <div class="logo">Triora Systems</div>
+      <div class="hamburger" role="button" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="nav-links" role="navigation">
+        <a href="#home" aria-label="Home page">Home</a>
+        <a href="#about" aria-label="About us">About</a>
+        <a href="#services" aria-label="Our services">Services</a>
+        <a href="#case-studies" aria-label="Case studies">Case Studies</a>
+        <a href="#process" aria-label="Our process">Process</a>
+        <a href="#testimonials" aria-label="Customer reviews">Reviews</a>
+        <a href="#faq" aria-label="Frequently asked questions">FAQ</a>
+        <a href="#contact" aria-label="Contact us">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero" aria-labelledby="hero-title">
+    <div class="hero-content">
+      <h1 id="hero-title" data-aos="fade-up">Transform Your Digital Future</h1>
+      <p data-aos="fade-up" data-aos-delay="200">Unlock the power of AI, Cloud Computing, DevOps, and Cybersecurity to accelerate your business growth. We deliver cutting-edge solutions that drive innovation and maximize ROI.</p>
+      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+        <a href="#contact" class="btn" aria-label="Start your journey">Start Your Journey</a>
+        <a href="#services" class="btn btn-secondary" aria-label="Explore services">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="stats" data-aos="fade-up" aria-labelledby="stats-title">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number pulsing">500+</span>
+        <div class="stat-label">Successful Projects</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number pulsing">98%</span>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number pulsing">150+</span>
+        <div class="stat-label">Expert Engineers</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number pulsing">24/7</span>
+        <div class="stat-label">Technical Support</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about" data-aos="fade-right" aria-labelledby="about-title">
+    <h2 class="section-title" id="about-title">About Us</h2>
+    <p class="section-subtitle">Discover our story, mission, and the team driving innovation</p>
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Leading Digital Transformation Since 2015</h2>
+        <p>Triora Systems is a global leader in AI, cloud computing, and cybersecurity solutions, dedicated to empowering businesses to thrive in the digital era. Founded in 2015, we have successfully delivered over 500 projects across industries like finance, healthcare, retail, and manufacturing, achieving a 98% client retention rate.</p>
+        <p>Our mission is to architect intelligent, secure, and scalable digital ecosystems that drive innovation and deliver measurable business outcomes. Our vision is to be the trusted partner for enterprises navigating the complexities of digital transformation, leveraging our expertise in AI/ML, cloud infrastructure, DevOps, and cybersecurity.</p>
+      </div>
+      <div class="about-image floating">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1470" alt="Our Team at Work" loading="lazy">
+      </div>
+    </div>
+    <div class="about-team">
+      <h3>Our Expert Team</h3>
+      <div class="cards-grid">
+        <div class="card" data-aos="zoom-in" data-aos-delay="0">
+          <img src="https://images.unsplash.com/photo-1560264418-c4445382edbc?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI Expertise" loading="lazy">
+          <div class="card-content">
+            <h3>AI & ML Expertise</h3>
+            <p>Our certified AI specialists develop cutting-edge models in NLP, computer vision, and predictive analytics to drive business value.</p>
+          </div>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1470" alt="Cloud Expertise" loading="lazy">
+          <div class="card-content">
+            <h3>Cloud Architects</h3>
+            <p>Our cloud experts design and manage scalable, secure infrastructures on AWS, Azure, and GCP.</p>
+          </div>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1470" alt="Cybersecurity Expertise" loading="lazy">
+          <div class="card-content">
+            <h3>Cybersecurity Leaders</h3>
+            <p>Our CISSP-certified professionals ensure your systems are protected with zero-trust architectures.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-milestones">
+      <h3>Our Milestones</h3>
+      <div class="cards-grid">
+        <div class="card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-content">
+            <h3>2015</h3>
+            <p>Founded Triora Systems with a vision to revolutionize digital transformation.</p>
+          </div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-content">
+            <h3>2018</h3>
+            <p>Expanded to serve 100+ clients across multiple industries.</p>
+          </div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-content">
+            <h3>2022</h3>
+            <p>Launched advanced AI platforms, achieving 300% ROI for key clients.</p>
+          </div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-content">
+            <h3>2025</h3>
+            <p>Recognized as a global leader in AI and cloud innovation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" data-aos="fade-up" aria-labelledby="services-title">
+    <h2 class="section-title" id="services-title">Our Comprehensive Services</h2>
+    <p class="section-subtitle">End-to-end technology solutions designed to accelerate your digital transformation journey</p>
+    
+    <div class="cards-grid">
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="0">
+        <div class="service-icon">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <h3>Cloud Infrastructure</h3>
+        <p>Design, deploy, and manage scalable cloud environments on AWS, Azure, and GCP. From migration strategies to multi-cloud architectures, we ensure optimal performance, cost-efficiency, and reliability.</p>
+      </div>
+      
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="service-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3>AI & Machine Learning</h3>
+        <p>Transform your data into intelligent insights with custom AI solutions. From computer vision to NLP and predictive analytics, we build ML models that drive real business value and competitive advantage.</p>
+      </div>
+      
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="service-icon">
+          <i class="fas fa-infinity"></i>
+        </div>
+        <h3>DevOps & CI/CD</h3>
+        <p>Accelerate your software delivery with robust DevOps practices. We implement automated pipelines, infrastructure as code, containerization, and monitoring solutions that reduce deployment time by 80%.</p>
+      </div>
+      
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="service-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>DevSecOps & Security</h3>
+        <p>Integrate security into every stage of your development lifecycle. Our DevSecOps approach ensures compliance, vulnerability management, and zero-trust architectures without compromising agility.</p>
+      </div>
+      
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+        <div class="service-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Data Analytics & BI</h3>
+        <p>Unlock hidden insights with advanced analytics platforms. From real-time dashboards to predictive modeling, we help you make data-driven decisions that drive growth and operational excellence.</p>
+      </div>
+      
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+        <div class="service-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h3>Cybersecurity Services</h3>
+        <p>Protect your digital assets with comprehensive security solutions. From penetration testing to incident response, we provide 24/7 monitoring and threat intelligence to safeguard your business.</p>
+      </div>
+      
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="600">
+        <div class="service-icon">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <h3>IoT Integration</h3>
+        <p>Connect your physical and digital worlds with intelligent IoT solutions. We design secure, scalable IoT ecosystems that enable real-time monitoring, automation, and predictive maintenance.</p>
+      </div>
+      
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="700">
+        <div class="service-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3>IT Consulting & Strategy</h3>
+        <p>Align your technology investments with business objectives. Our strategic consulting services help you navigate digital transformation, optimize IT operations, and achieve sustainable growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section id="case-studies" class="case-studies" data-aos="fade-up" aria-labelledby="case-studies-title">
+    <h2 class="section-title" id="case-studies-title">Success Stories</h2>
+    <p class="section-subtitle">Real results from real clients who trusted us to transform their business</p>
+    
+    <div class="cards-grid">
+      <div class="case-study-card" data-aos="slide-left" data-aos-delay="0">
+        <h3>FinTech Revolution</h3>
+        <p>Modernized a traditional bank's infrastructure with AI-powered fraud detection and cloud-native architecture, processing 1M+ transactions daily.</p>
+        <div class="case-study-result">300% ROI in 18 months</div>
+      </div>
+      
+      <div class="case-study-card" data-aos="slide-up" data-aos-delay="100">
+        <h3>Healthcare Analytics</h3>
+        <p>Implemented ML-driven patient monitoring system for a hospital network, reducing readmission rates and improving care quality across 15 facilities.</p>
+        <div class="case-study-result">45% reduction in readmissions</div>
+      </div>
+      
+      <div class="case-study-card" data-aos="slide-right" data-aos-delay="200">
+        <h3>E-commerce Scale-Up</h3>
+        <p>Built a resilient DevOps pipeline for a growing retailer, enabling zero-downtime deployments and auto-scaling during peak traffic periods.</p>
+        <div class="case-study-result">99.99% uptime achieved</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="tech-stack" data-aos="fade-up" aria-labelledby="tech-stack-title">
+    <h2 class="section-title" id="tech-stack-title">Our Technology Stack</h2>
+    <p class="section-subtitle">Cutting-edge tools and platforms we use to deliver exceptional results</p>
+    
+    <div class="tech-grid">
+      <div class="tech-item" data-aos="flip-up" data-aos-delay="0">
+        <i class="fab fa-aws"></i>
+        <h4>AWS</h4>
+      </div>
+      <div class="tech-item" data-aos="flip-up" data-aos-delay="100">
+        <i class="fab fa-microsoft"></i>
+        <h4>Azure</h4>
+      </div>
+      <div class="tech-item" data-aos="flip-up" data-aos-delay="200">
+        <i class="fab fa-google"></i>
+        <h4>GCP</h4>
+      </div>
+      <div class="tech-item" data-aos="flip-up" data-aos-delay="300">
+        <i class="fab fa-docker"></i>
+        <h4>Docker</h4>
+      </div>
+      <div class="tech-item" data-aos="flip-up" data-aos-delay="400">
+        <i class="fas fa-dharmachakra"></i>
+        <h4>Kubernetes</h4>
+      </div>
+      <div class="tech-item" data-aos="flip-up" data-aos-delay="500">
+        <i class="fab fa-python"></i>
+        <h4>Python</h4>
+      </div>
+      <div class="tech-item" data-aos="flip-up" data-aos-delay="600">
+        <i class="fas fa-brain"></i>
+        <h4>TensorFlow</h4>
+      </div>
+      <div class="tech-item" data-aos="flip-up" data-aos-delay="700">
+        <i class="fab fa-jenkins"></i>
+        <h4>Jenkins</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process -->
+  <section id="process" class="process" data-aos="fade-up" aria-labelledby="process-title">
+    <h2 class="section-title" id="process-title">Our Proven Process</h2>
+    <p class="section-subtitle">A systematic approach that ensures successful project delivery every time</p>
+    
+    <div class="process-grid">
+      <div class="process-card" data-aos="zoom-in" data-aos-delay="0">
+        <div class="process-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>Discovery & Assessment</h3>
+        <p>We analyze your infrastructure and business goals to create a tailored roadmap for success.</p>
+      </div>
+      
+      <div class="process-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="process-icon">
+          <i class="fas fa-drafting-compass"></i>
+        </div>
+        <h3>Architecture & Design</h3>
+        <p>Our experts design scalable, secure solutions aligned with your strategic objectives.</p>
+      </div>
+      
+      <div class="process-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="process-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Implementation & Testing</h3>
+        <p>Agile development with automated testing ensures high-quality, timely delivery.</p>
+      </div>
+      
+      <div class="process-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="process-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3>Deployment & Optimization</h3>
+        <p>Seamless deployment with performance optimization for maximum efficiency.</p>
+      </div>
+      
+      <div class="process-card" data-aos="zoom-in" data-aos-delay="400">
+        <div class="process-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>Support & Evolution</h3>
+        <p>24/7 monitoring and continuous improvement to keep your systems future-ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Features -->
+  <section id="features" class="features" data-aos="fade-left" aria-labelledby="features-title">
+    <h2 class="section-title" id="features-title">Why Choose Us</h2>
+    <p class="section-subtitle">Our commitment to excellence sets us apart in delivering transformative solutions</p>
+    
+    <div class="cards-grid">
+      <div class="card" data-aos="flip-left" data-aos-delay="0">
+        <div class="card-icon">
+          <i class="fas fa-award"></i>
+        </div>
+        <div class="card-content">
+          <h3>Certified Expertise</h3>
+          <p>200+ certifications including AWS, Azure, and CISSP, with partnerships across major cloud providers.</p>
+        </div>
+      </div>
+      
+      <div class="card" data-aos="flip-left" data-aos-delay="100">
+        <div class="card-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="card-content">
+          <h3>Unmatched Security</h3>
+          <p>SOC 2 Type II, GDPR, and HIPAA compliance with zero-trust architecture to protect your assets.</p>
+        </div>
+      </div>
+      
+      <div class="card" data-aos="flip-left" data-aos-delay="200">
+        <div class="card-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="card-content">
+          <h3>Rapid Results</h3>
+          <p>40% faster project delivery with measurable ROI within 3-6 months.</p>
+        </div>
+      </div>
+      
+      <div class="card" data-aos="flip-left" data-aos-delay="300">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="card-content">
+          <h3>Dedicated Support</h3>
+          <p>24/7 support with a dedicated team ensuring your success at every step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials" data-aos="zoom-in" aria-labelledby="testimonials-title">
+    <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
+    <p class="section-subtitle">Hear from the leaders who trusted us to transform their businesses</p>
+    
+    <div class="testimonial-carousel">
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="testimonial-avatar">SC</div>
+        <p>"Triora Systems transformed our entire IT infrastructure. Their DevSecOps implementation reduced our deployment time from weeks to hours while significantly improving security posture."</p>
+        <h4>Sarah Chen</h4>
+        <span>CTO, FinanceFirst Corp</span>
+      </div>
+      
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-avatar">MR</div>
+        <p>"The AI-powered analytics platform they built for us has been a game-changer. We're now making data-driven decisions that have increased our revenue by 35% year-over-year."</p>
+        <h4>Michael Rodriguez</h4>
+        <span>CEO, RetailMax Solutions</span>
+      </div>
+      
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-avatar">EW</div>
+        <p>"Their cybersecurity expertise saved us from a major breach. The proactive threat detection system they implemented has blocked over 10,000 potential attacks this year alone."</p>
+        <h4>Dr. Emily Watson</h4>
+        <span>CISO, HealthCare United</span>
+      </div>
+      
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="testimonial-avatar">JT</div>
+        <p>"Working with Triora Systems has been exceptional. Their cloud migration strategy reduced our operational costs by 60% while improving performance. Highly recommended!"</p>
+        <h4>James Thompson</h4>
+        <span>VP Technology, Manufacturing Pro</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq" data-aos="fade-up" aria-labelledby="faq-title">
+    <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">Get answers to the most common questions about our services and approach</p>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false">
+        What makes Triora Systems different from other IT service providers?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        We combine deep technical expertise with business acumen, delivering measurable outcomes rather than just technology implementations. Our certified professionals, proven methodologies, and 24/7 support ensure your success from day one.
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false">
+        How do you ensure the security of our data and systems?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        We implement enterprise-grade security including zero-trust architecture, end-to-end encryption, multi-factor authentication, and continuous monitoring. Our team holds CISSP, CISM, and other security certifications, and we maintain SOC 2 Type II compliance.
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false">
+        Can you help with both cloud migration and DevOps transformation?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Absolutely! We specialize in comprehensive digital transformation that includes cloud migration, DevOps/DevSecOps implementation, and cultural change management. Our holistic approach ensures all components work seamlessly together.
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false">
+        What is your typical project timeline and pricing structure?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Project timelines vary from 2-12 months depending on scope and complexity. We offer flexible pricing models including fixed-price projects, time-and-materials, and outcome-based contracts. Contact us for a customized proposal based on your specific needs.
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false">
+        Do you provide ongoing support after project completion?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Yes, we offer comprehensive managed services including 24/7 monitoring, proactive maintenance, security updates, and continuous optimization. Our support packages are tailored to your specific requirements and SLA needs.
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" role="button" aria-expanded="false">
+        How do you handle compliance requirements in regulated industries?
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        We have extensive experience with HIPAA, PCI DSS, SOX, GDPR, and other regulatory frameworks. Our compliance experts ensure all solutions meet industry-specific requirements while maintaining operational efficiency and security.
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact" data-aos="fade-up" aria-labelledby="contact-title">
+    <h2 class="section-title" id="contact-title">Ready to Transform Your Business?</h2>
+    <p class="section-subtitle">Let's discuss how we can accelerate your digital transformation journey</p>
+    
+    <div class="contact-content">
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email</strong><br>
+            contact@triorasystems.com<br>
+            sales@triorasystems.com
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Phone</strong><br>
+            +1 (555) 123-4567<br>
+            +1 (555) 123-4568
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Headquarters</strong><br>
+            123 Innovation Drive<br>
+            Tech Valley, CA 94043
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <strong>Business Hours</strong><br>
+            24/7 Support Available<br>
+            Global Delivery Centers
+          </div>
+        </div>
+      </div>
+      
+      <form data-aos="slide-left" id="contact-form">
+        <input type="text" name="name" placeholder="Full Name *" required aria-label="Full Name"/>
+        <input type="email" name="email" placeholder="Business Email *" required aria-label="Business Email"/>
+        <input type="text" name="company" placeholder="Company Name *" required aria-label="Company Name"/>
+        <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number"/>
+        <select name="service" required aria-label="Service Interest">
+          <option value="">Select Service Interest *</option>
+          <option value="cloud">Cloud Infrastructure</option>
+          <option value="ai">AI & Machine Learning</option>
+          <option value="devops">DevOps & CI/CD</option>
+          <option value="devsecops">DevSecOps & Security</option>
+          <option value="analytics">Data Analytics & BI</option>
+          <option value="cybersecurity">Cybersecurity</option>
+          <option value="consulting">IT Consulting</option>
+          <option value="multiple">Multiple Services</option>
+        </select>
+        <textarea rows="4" name="message" placeholder="Tell us about your project requirements and challenges *" required aria-label="Project Requirements"></textarea>
+        <button type="submit" class="btn glowing" aria-label="Submit Form">Start Your Transformation</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer aria-labelledby="footer-title">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 id="footer-title">Triora Systems</h4>
+        <p>Transforming businesses through innovative AI, Cloud, DevOps, and Cybersecurity solutions. Your trusted partner in digital transformation.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Services</h4>
+        <a href="#services">Cloud Infrastructure</a>
+        <a href="#services">AI & Machine Learning</a>
+        <a href="#services">DevOps & CI/CD</a>
+        <a href="#services">DevSecOps & Security</a>
+        <a href="#services">Data Analytics</a>
+        <a href="#services">Cybersecurity</a>
+        <a href="#services">IoT Integration</a>
+        <a href="#services">IT Consulting</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#process">Our Process</a>
+        <a href="#testimonials">Client Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+        <a href="#">Resources</a>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <p><i class="fas fa-envelope"></i> contact@triorasystems.com</p>
+        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive<br>Tech Valley, CA 94043</p>
+        <div style="margin-top: 1rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom" style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #374151;">
+      <p>&copy; 2025 Triora Systems. All rights reserved. | Empowering Digital Transformation Worldwide</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ 
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = hamburger.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = hamburger.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+      });
+    });
+
+    // FAQ accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all FAQ items
+        faqQuestions.forEach(q => {
+          q.parentElement.classList.remove('active');
+          q.setAttribute('aria-expanded', 'false');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Counter animation for statistics
+    function animateCounter(element, target) {
+      let count = 0;
+      const increment = target / 100;
+      const timer = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+          element.textContent = target + (element.textContent.includes('%') ? '%' : '+');
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.ceil(count) + (element.textContent.includes('%') ? '%' : '+');
+        }
+      }, 20);
+    }
+
+    // Trigger counter animation when stats section is visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const numbers = entry.target.querySelectorAll('.stat-number');
+          numbers.forEach(num => {
+            const target = parseInt(num.textContent);
+            animateCounter(num, target);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission handling with validation
+    const contactForm = document.querySelector('#contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate form
+        const name = this.querySelector('input[name="name"]').value.trim();
+        const email = this.querySelector('input[name="email"]').value.trim();
+        const company = this.querySelector('input[name="company"]').value.trim();
+        const service = this.querySelector('select[name="service"]').value;
+        const message = this.querySelector('textarea[name="message"]').value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!name || !email || !company || !service || !message) {
+          alert('Please fill out all required fields.');
+          return;
+        }
+
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission
+        setTimeout(() => {
+          alert('Thank you for your interest! We\'ll get back to you within 24 hours.');
+          this.reset();
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

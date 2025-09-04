@@ -1,0 +1,44 @@
+# Create Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: triora
+---
+# Deployment for ved06/triora:v1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: triora-deployment
+  namespace: triora
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: triora
+  template:
+    metadata:
+      labels:
+        app: triora
+    spec:
+      containers:
+      - name: triora-container
+        image: ved06/triora:v1
+        ports:
+        - containerPort: 80
+---
+# Service to expose the Deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: triora-service
+  namespace: triora
+spec:
+  type: NodePort
+  selector:
+    app: triora
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30081   # Optional: choose a port between 30000-32767
+
