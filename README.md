@@ -57,9 +57,8 @@
     # k8s get nodes
     kubectl get nodes
 
-# Kubernetes apply for createing pods and svc
+# Apply Kubernetes YAML manifests to create Pods and Service (triora-deployment.yaml) 
     kubectl apply -f triora-deployment.yaml
-
     kubectl get all -n triora
 
 
